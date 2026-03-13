@@ -279,10 +279,10 @@ int main() {
     TestSuite ts;
     ts_init(&ts);
 
-    printf(CYAN "=== ПОЛНЫЕ ТЕСТЫ CBLAS LEVEL 3 (30 ФУНКЦИЙ) ===" RESET "\n\n");
+    printf(CYAN "=== ВСЕ ТЕСТЫ CBLAS LEVEL 3 ===" RESET "\n\n");
 
     printf(YELLOW "--- GEMM ---" RESET "\n");
-    ts_report(&ts, run_safe(t_sgemm), "cblas_sgemm (DEMO FAIL)");
+    ts_report(&ts, run_safe(t_sgemm), "cblas_sgemm");
     ts_report(&ts, run_safe(t_dgemm), "cblas_dgemm");
     ts_report(&ts, run_safe(t_cgemm), "cblas_cgemm");
     ts_report(&ts, run_safe(t_zgemm), "cblas_zgemm");
