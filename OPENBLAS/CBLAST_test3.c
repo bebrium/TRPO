@@ -228,7 +228,7 @@ int t_ctrsm() {
 int t_ztrsm() {
     double complex alpha=1.0;
     double complex A[9], B[9];
-    for(int i=0;i<9;i++) A[i] = (i%4==0)?1.0:0.0;
+    for(int i=0;i<9;i++) A[i] = (i%4==0)?1.0:0.0;  
     fill_seq_z(B,3,3,3);
     cblas_ztrsm(CblasColMajor, CblasRight, CblasLower, CblasConjTrans, CblasNonUnit, 3,3, CPTR(&alpha), CPTR(A), 3, CPTR(B), 3);
     return 1;

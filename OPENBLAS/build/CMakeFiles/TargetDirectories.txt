@@ -1,0 +1,3 @@
+/mnt/d/VisualCode/TRPO/OPENBLAS/build/CMakeFiles/trmm_benchmark.dir
+/mnt/d/VisualCode/TRPO/OPENBLAS/build/CMakeFiles/edit_cache.dir
+/mnt/d/VisualCode/TRPO/OPENBLAS/build/CMakeFiles/rebuild_cache.dir
