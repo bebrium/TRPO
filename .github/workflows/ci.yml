@@ -1,0 +1,47 @@
+name: CI Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libopenblas-dev libomp-dev g++ cmake
+    
+    - name: Create build directory
+      run: mkdir -p OPENBLAS/build
+    
+    - name: Configure CMake
+      working-directory: OPENBLAS/build
+      run: cmake .. -DCMAKE_CXX_FLAGS="-fopenmp"
+    
+    - name: Build
+      working-directory: OPENBLAS/build
+      run: make -j2
+    
+    - name: Run correctness tests
+      working-directory: OPENBLAS/build
+      run: ./trmm_benchmark | tee output.log
+      continue-on-error: true
+    
+    - name: Check test results
+      working-directory: OPENBLAS/build
+      run: |
+        if grep -q "FAIL" output.log; then
+          echo "Тесты провалены!"
+          exit 1
+        else
+          echo "Все тесты пройдены!"
+          exit 0
+        fi
