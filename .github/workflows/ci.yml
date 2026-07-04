@@ -20,7 +20,9 @@ jobs:
         sudo apt-get install -y libopenblas-dev libomp-dev g++ cmake
     
     - name: Create build directory
-      run: mkdir -p OPENBLAS/build
+      run: |
+        rm -rf OPENBLAS/build
+        mkdir -p OPENBLAS/build
     
     - name: Configure CMake
       working-directory: OPENBLAS/build
@@ -29,6 +31,9 @@ jobs:
     - name: Build
       working-directory: OPENBLAS/build
       run: make -j2
+    
+    - name: Make test runner executable
+      run: chmod +x test_runner.sh
     
     - name: Run tests
       run: ./test_runner.sh
