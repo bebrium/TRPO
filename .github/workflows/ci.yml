@@ -30,18 +30,5 @@ jobs:
       working-directory: OPENBLAS/build
       run: make -j2
     
-    - name: Run correctness tests
-      working-directory: OPENBLAS/build
-      run: ./trmm_benchmark | tee output.log
-      continue-on-error: true
-    
-    - name: Check test results
-      working-directory: OPENBLAS/build
-      run: |
-        if grep -q "FAIL" output.log; then
-          echo "Тесты провалены!"
-          exit 1
-        else
-          echo "Все тесты пройдены!"
-          exit 0
-        fi
+    - name: Run tests
+      run: ./test_runner.sh

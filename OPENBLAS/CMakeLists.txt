@@ -22,11 +22,5 @@ if(OpenMP_CXX_FOUND)
     target_compile_options(trmm_benchmark PRIVATE ${OpenMP_CXX_FLAGS})
 endif()
 
-if(MSVC)
-    target_compile_options(trmm_benchmark PRIVATE /O2 /arch:AVX2)
-else()
-    target_compile_options(trmm_benchmark PRIVATE -O3 -march=native -flto)
-endif()
-
 message(STATUS "OpenBLAS found: ${OpenBLAS_DIR}")
 message(STATUS "OpenMP enabled: ${OpenMP_CXX_FOUND}")
