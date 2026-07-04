@@ -1,1 +1,10 @@
-docku/psweb/
+OPENBLAS/build/
+*.o
+*.a
+*.so
+*.exe
+*.out
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
