@@ -100,7 +100,7 @@ void my_trmm_parallel(CBLAS_SIDE side, CBLAS_UPLO uplo,
     } else {
         if (!trans) {
             #pragma omp parallel for collapse(2) schedule(static)
-            for (int i = 0; i < M; ++i) {
+            for (int i = 0; i < M; i++) {
                 for (int j = 0; j < N; ++j) {
                     T sum = 0;
                     if (upper) {
