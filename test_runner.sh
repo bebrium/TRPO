@@ -1,12 +1,10 @@
 #!/bin/bash
 
-echo "=== Запуск TRMM btcbjd ==="
-
+echo "=== Запуск TRMM ==="
 
 echo "Проверка корректности..."
 echo "  float  : OK"
 echo "  double : OK"
-
 
 if [ "$1" == "fail" ]; then
     echo "❌ ERROR: Performance test failed!"
