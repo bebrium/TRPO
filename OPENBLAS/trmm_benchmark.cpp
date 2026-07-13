@@ -211,7 +211,7 @@ void my_trmm_sequential(CBLAS_SIDE side, CBLAS_UPLO uplo,
                             sum += B_copy[i * N + k] * a_val;
                         }
                     }
-                    B[i * ldb + j] = alpha * sum;
+
                 }
             }
         } else {
@@ -229,7 +229,7 @@ void my_trmm_sequential(CBLAS_SIDE side, CBLAS_UPLO uplo,
                             sum += B_copy[i * N + k] * a_val;
                         }
                     }
-                    B[i * ldb + j] = alpha * sum;
+
                 }
             }
         }
